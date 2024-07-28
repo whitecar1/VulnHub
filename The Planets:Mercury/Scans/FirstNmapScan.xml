@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Sun Jul 28 08:21:09 2024 as: nmap -sV -vvv -p- -O -oA FirstNmapScan 10.0.2.11 -->
+<nmaprun scanner="nmap" args="nmap -sV -vvv -p- -O -oA FirstNmapScan 10.0.2.11" start="1722144069" startstr="Sun Jul 28 08:21:09 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="3"/>
+<debugging level="0"/>
+<taskbegin task="ARP Ping Scan" time="1722144070"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.0.2.11" addrtype="ipv4"/>
+<address addr="08:00:27:2C:DF:14" addrtype="mac" vendor="Oracle VirtualBox virtual NIC"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskend task="ARP Ping Scan" time="1722144070" extrainfo="1 total hosts"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1722144070"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1722144070"/>
+<taskbegin task="SYN Stealth Scan" time="1722144070"/>
+<taskend task="SYN Stealth Scan" time="1722144111" extrainfo="65535 total ports"/>
+<taskbegin task="Service scan" time="1722144111"/>
+<taskprogress task="Service scan" time="1722144148" percent="50.00" remaining="38" etc="1722144185"/>
+<taskprogress task="Service scan" time="1722144183" percent="50.00" remaining="72" etc="1722144255"/>
+<taskend task="Service scan" time="1722144203" extrainfo="2 services on 1 host"/>
+<taskbegin task="NSE" time="1722144204"/>
+<taskend task="NSE" time="1722144204"/>
+<taskbegin task="NSE" time="1722144204"/>
+<taskend task="NSE" time="1722144205"/>
+<host starttime="1722144070" endtime="1722144205"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.0.2.11" addrtype="ipv4"/>
+<address addr="08:00:27:2C:DF:14" addrtype="mac" vendor="Oracle VirtualBox virtual NIC"/>
+<hostnames>
+<hostname name="10.0.2.11" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="65533">
+<extrareasons reason="reset" count="65533" proto="tcp" ports="1-21,23-8079,8081-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="8.2p1 Ubuntu 4ubuntu0.1" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:8.2p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http-proxy" product="WSGIServer/0.2 CPython/3.8.2" servicefp="SF-Port8080-TCP:V=7.94SVN%I=7%D=7/28%Time=66A5D576%P=x86_64-pc-linux-gnu%r(GetRequest,135,&quot;HTTP/1\.1\x20200\x20OK\r\nDate:\x20Sun,\x2028\x20Jul\x202024\x2005:21:57\x20GMT\r\nServer:\x20WSGIServer/0\.2\x20CPython/3\.8\.2\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nX-Frame-Options:\x20DENY\r\nContent-Length:\x2069\r\nX-Content-Type-Options:\x20nosniff\r\nReferrer-Policy:\x20same-origin\r\n\r\nHello\.\x20This\x20site\x20is\x20currently\x20in\x20development\x20please\x20check\x20back\x20later\.&quot;)%r(HTTPOptions,135,&quot;HTTP/1\.1\x20200\x20OK\r\nDate:\x20Sun,\x2028\x20Jul\x202024\x2005:21:57\x20GMT\r\nServer:\x20WSGIServer/0\.2\x20CPython/3\.8\.2\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nX-Frame-Options:\x20DENY\r\nContent-Length:\x2069\r\nX-Content-Type-Options:\x20nosniff\r\nReferrer-Policy:\x20same-origin\r\n\r\nHello\.\x20This\x20site\x20is\x20currently\x20in\x20development\x20please\x20check\x20back\x20later\.&quot;)%r(RTSPRequest,1F4,&quot;&lt;!DOCTYPE\x20HTML\x20PUBLIC\x20\&quot;-//W3C//DTD\x20HTML\x204\.01//EN\&quot;\n\x20\x20\x20\x20\x20\x20\x20\x20\&quot;http://www\.w3\.org/TR/html4/strict\.dtd\&quot;&gt;\n&lt;html&gt;\n\x20\x20\x20\x20&lt;head&gt;\n\x20\x20\x20\x20\x20\x20\x20\x20&lt;meta\x20http-equiv=\&quot;Content-Type\&quot;\x20content=\&quot;text/html;charset=utf-8\&quot;&gt;\n\x20\x20\x20\x20\x20\x20\x20\x20&lt;title&gt;Error\x20response&lt;/title&gt;\n\x20\x20\x20\x20&lt;/head&gt;\n\x20\x20\x20\x20&lt;body&gt;\n\x20\x20\x20\x20\x20\x20\x20\x20&lt;h1&gt;Error\x20response&lt;/h1&gt;\n\x20\x20\x20\x20\x20\x20\x20\x20&lt;p&gt;Error\x20code:\x20400&lt;/p&gt;\n\x20\x20\x20\x20\x20\x20\x20\x20&lt;p&gt;Message:\x20Bad\x20request\x20version\x20\(&apos;RTSP/1\.0&apos;\)\.&lt;/p&gt;\n\x20\x20\x20\x20\x20\x20\x20\x20&lt;p&gt;Error\x20code\x20explanation:\x20HTTPStatus\.BAD_REQUEST\x20-\x20Bad\x20request\x20syntax\x20or\x20unsupported\x20method\.&lt;/p&gt;\n\x20\x20\x20\x20&lt;/body&gt;\n&lt;/html&gt;\n&quot;)%r(FourOhFourRequest,A28,&quot;HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:\x20Sun,\x2028\x20Jul\x202024\x2005:21:57\x20GMT\r\nServer:\x20WSGIServer/0\.2\x20CPython/3\.8\.2\r\nContent-Type:\x20text/html\r\nX-Frame-Options:\x20DENY\r\nContent-Length:\x202366\r\nX-Content-Type-Options:\x20nosniff\r\nReferrer-Policy:\x20same-origin\r\n\r\n&lt;!DOCTYPE\x20html&gt;\n&lt;html\x20lang=\&quot;en\&quot;&gt;\n&lt;head&gt;\n\x20\x20&lt;meta\x20http-equiv=\&quot;content-type\&quot;\x20content=\&quot;text/html;\x20charset=utf-8\&quot;&gt;\n\x20\x20&lt;title&gt;Page\x20not\x20found\x20at\x20/nice\x20ports,/Trinity\.txt\.bak&lt;/title&gt;\n\x20\x20&lt;meta\x20name=\&quot;robots\&quot;\x20content=\&quot;NONE,NOARCHIVE\&quot;&gt;\n\x20\x20&lt;style\x20type=\&quot;text/css\&quot;&gt;\n\x20\x20\x20\x20html\x20\*\x20{\x20padding:0;\x20margin:0;\x20}\n\x20\x20\x20\x20body\x20\*\x20{\x20padding:10px\x2020px;\x20}\n\x20\x20\x20\x20body\x20\*\x20\*\x20{\x20padding:0;\x20}\n\x20\x20\x20\x20body\x20{\x20font:small\x20sans-serif;\x20background:#eee;\x20color:#000;\x20}\n\x20\x20\x20\x20body&gt;div\x20{\x20border-bottom:1px\x20solid\x20#ddd;\x20}\n\x20\x20\x20\x20h1\x20{\x20font-weight:normal;\x20margin-bottom:\.4em;\x20}\n\x20\x20\x20\x20h1\x20span\x20{\x20font-size:60%;\x20color:#666;\x20font-weight:normal;\x20}\n\x20\x20\x20\x20table\x20{\x20border:none;\x20border-collapse:\x20collapse;\x20width:100%;\x20}\n\x20\x20\x20\x20td,\x20th\x20{\x20vertical-align:&quot;);" method="probed" conf="10"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="22"/>
+<portused state="closed" proto="tcp" portid="1"/>
+<portused state="closed" proto="udp" portid="32685"/>
+<osmatch name="Linux 4.15 - 5.8" accuracy="100" line="67250">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:5</cpe></osclass>
+</osmatch>
+<osfingerprint fingerprint="OS:SCAN(V=7.94SVN%E=4%D=7/28%OT=22%CT=1%CU=32685%PV=Y%DS=1%DC=D%G=Y%M=08002&#xa;OS:7%TM=66A5D5CD%P=x86_64-pc-linux-gnu)SEQ(SP=102%GCD=1%ISR=10C%TI=Z%CI=Z%I&#xa;OS:I=I%TS=A)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW&#xa;OS:7%O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88&#xa;OS:%W6=FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M5B4NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%&#xa;OS:S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%&#xa;OS:RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W&#xa;OS:=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)&#xa;OS:U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%D&#xa;OS:FI=N%T=40%CD=S)&#xa;"/>
+</os>
+<uptime seconds="512397" lastboot="Mon Jul 22 10:03:28 2024"/>
+<distance value="1"/>
+<tcpsequence index="258" difficulty="Good luck!" values="CE6EABEB,8389D23C,95C3E0D0,3FCE06B7,F2F1C718,8CA5F4B7"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="1000HZ" values="1E8A89C4,1E8A8A29,1E8A8A8E,1E8A8AF4,1E8A8B57,1E8A8BBC"/>
+<times srtt="1494" rttvar="564" to="100000"/>
+</host>
+<runstats><finished time="1722144205" timestr="Sun Jul 28 08:23:25 2024" summary="Nmap done at Sun Jul 28 08:23:25 2024; 1 IP address (1 host up) scanned in 136.31 seconds" elapsed="136.31" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

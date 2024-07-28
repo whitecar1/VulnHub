@@ -1,0 +1,79 @@
+# Nmap 7.94SVN scan initiated Sun Jul 28 08:21:09 2024 as: nmap -sV -vvv -p- -O -oA FirstNmapScan 10.0.2.11
+Nmap scan report for 10.0.2.11 (10.0.2.11)
+Host is up, received arp-response (0.0015s latency).
+Scanned at 2024-07-28 08:21:10 +03 for 135s
+Not shown: 65533 closed tcp ports (reset)
+PORT     STATE SERVICE    REASON         VERSION
+22/tcp   open  ssh        syn-ack ttl 64 OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+8080/tcp open  http-proxy syn-ack ttl 64 WSGIServer/0.2 CPython/3.8.2
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8080-TCP:V=7.94SVN%I=7%D=7/28%Time=66A5D576%P=x86_64-pc-linux-gnu%r
+SF:(GetRequest,135,"HTTP/1\.1\x20200\x20OK\r\nDate:\x20Sun,\x2028\x20Jul\x
+SF:202024\x2005:21:57\x20GMT\r\nServer:\x20WSGIServer/0\.2\x20CPython/3\.8
+SF:\.2\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nX-Frame-Options:
+SF:\x20DENY\r\nContent-Length:\x2069\r\nX-Content-Type-Options:\x20nosniff
+SF:\r\nReferrer-Policy:\x20same-origin\r\n\r\nHello\.\x20This\x20site\x20i
+SF:s\x20currently\x20in\x20development\x20please\x20check\x20back\x20later
+SF:\.")%r(HTTPOptions,135,"HTTP/1\.1\x20200\x20OK\r\nDate:\x20Sun,\x2028\x
+SF:20Jul\x202024\x2005:21:57\x20GMT\r\nServer:\x20WSGIServer/0\.2\x20CPyth
+SF:on/3\.8\.2\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nX-Frame-O
+SF:ptions:\x20DENY\r\nContent-Length:\x2069\r\nX-Content-Type-Options:\x20
+SF:nosniff\r\nReferrer-Policy:\x20same-origin\r\n\r\nHello\.\x20This\x20si
+SF:te\x20is\x20currently\x20in\x20development\x20please\x20check\x20back\x
+SF:20later\.")%r(RTSPRequest,1F4,"<!DOCTYPE\x20HTML\x20PUBLIC\x20\"-//W3C/
+SF:/DTD\x20HTML\x204\.01//EN\"\n\x20\x20\x20\x20\x20\x20\x20\x20\"http://w
+SF:ww\.w3\.org/TR/html4/strict\.dtd\">\n<html>\n\x20\x20\x20\x20<head>\n\x
+SF:20\x20\x20\x20\x20\x20\x20\x20<meta\x20http-equiv=\"Content-Type\"\x20c
+SF:ontent=\"text/html;charset=utf-8\">\n\x20\x20\x20\x20\x20\x20\x20\x20<t
+SF:itle>Error\x20response</title>\n\x20\x20\x20\x20</head>\n\x20\x20\x20\x
+SF:20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<h1>Error\x20response</h1>\n\
+SF:x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code:\x20400</p>\n\x20\x20\x
+SF:20\x20\x20\x20\x20\x20<p>Message:\x20Bad\x20request\x20version\x20\('RT
+SF:SP/1\.0'\)\.</p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code\x20e
+SF:xplanation:\x20HTTPStatus\.BAD_REQUEST\x20-\x20Bad\x20request\x20syntax
+SF:\x20or\x20unsupported\x20method\.</p>\n\x20\x20\x20\x20</body>\n</html>
+SF:\n")%r(FourOhFourRequest,A28,"HTTP/1\.1\x20404\x20Not\x20Found\r\nDate:
+SF:\x20Sun,\x2028\x20Jul\x202024\x2005:21:57\x20GMT\r\nServer:\x20WSGIServ
+SF:er/0\.2\x20CPython/3\.8\.2\r\nContent-Type:\x20text/html\r\nX-Frame-Opt
+SF:ions:\x20DENY\r\nContent-Length:\x202366\r\nX-Content-Type-Options:\x20
+SF:nosniff\r\nReferrer-Policy:\x20same-origin\r\n\r\n<!DOCTYPE\x20html>\n<
+SF:html\x20lang=\"en\">\n<head>\n\x20\x20<meta\x20http-equiv=\"content-typ
+SF:e\"\x20content=\"text/html;\x20charset=utf-8\">\n\x20\x20<title>Page\x2
+SF:0not\x20found\x20at\x20/nice\x20ports,/Trinity\.txt\.bak</title>\n\x20\
+SF:x20<meta\x20name=\"robots\"\x20content=\"NONE,NOARCHIVE\">\n\x20\x20<st
+SF:yle\x20type=\"text/css\">\n\x20\x20\x20\x20html\x20\*\x20{\x20padding:0
+SF:;\x20margin:0;\x20}\n\x20\x20\x20\x20body\x20\*\x20{\x20padding:10px\x2
+SF:020px;\x20}\n\x20\x20\x20\x20body\x20\*\x20\*\x20{\x20padding:0;\x20}\n
+SF:\x20\x20\x20\x20body\x20{\x20font:small\x20sans-serif;\x20background:#e
+SF:ee;\x20color:#000;\x20}\n\x20\x20\x20\x20body>div\x20{\x20border-bottom
+SF::1px\x20solid\x20#ddd;\x20}\n\x20\x20\x20\x20h1\x20{\x20font-weight:nor
+SF:mal;\x20margin-bottom:\.4em;\x20}\n\x20\x20\x20\x20h1\x20span\x20{\x20f
+SF:ont-size:60%;\x20color:#666;\x20font-weight:normal;\x20}\n\x20\x20\x20\
+SF:x20table\x20{\x20border:none;\x20border-collapse:\x20collapse;\x20width
+SF::100%;\x20}\n\x20\x20\x20\x20td,\x20th\x20{\x20vertical-align:");
+MAC Address: 08:00:27:2C:DF:14 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.8
+TCP/IP fingerprint:
+OS:SCAN(V=7.94SVN%E=4%D=7/28%OT=22%CT=1%CU=32685%PV=Y%DS=1%DC=D%G=Y%M=08002
+OS:7%TM=66A5D5CD%P=x86_64-pc-linux-gnu)SEQ(SP=102%GCD=1%ISR=10C%TI=Z%CI=Z%I
+OS:I=I%TS=A)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW
+OS:7%O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88
+OS:%W6=FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M5B4NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%
+OS:S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%
+OS:RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W
+OS:=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)
+OS:U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%D
+OS:FI=N%T=40%CD=S)
+
+Uptime guess: 5.931 days (since Mon Jul 22 10:03:28 2024)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=258 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Jul 28 08:23:25 2024 -- 1 IP address (1 host up) scanned in 136.31 seconds
