@@ -1,0 +1,5 @@
+# Nmap 7.94SVN scan initiated Sat Aug  3 14:17:52 2024 as: nmap -sV -sS -vvv -p- -T4 -A -oA Scans/FirstNmapScan 10.0.2.15
+# Ports scanned: TCP(65535;1-65535) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.0.2.15 (10.0.2.15)	Status: Up
+Host: 10.0.2.15 (10.0.2.15)	Ports: 22/open/tcp//ssh//OpenSSH 8.5 (protocol 2.0)/, 8080/open/tcp//http-proxy//WSGIServer|0.2 CPython|3.9.5/	Ignored State: filtered (65533)	Seq Index: 263	IP ID Seq: All zeros
+# Nmap done at Sat Aug  3 14:22:04 2024 -- 1 IP address (1 host up) scanned in 252.62 seconds

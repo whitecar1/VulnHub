@@ -1,0 +1,156 @@
+# Nmap 7.94SVN scan initiated Sat Aug  3 14:17:52 2024 as: nmap -sV -sS -vvv -p- -T4 -A -oA Scans/FirstNmapScan 10.0.2.15
+Nmap scan report for 10.0.2.15 (10.0.2.15)
+Host is up, received arp-response (0.0017s latency).
+Scanned at 2024-08-03 14:17:52 +03 for 252s
+Not shown: 65378 filtered tcp ports (no-response), 155 filtered tcp ports (admin-prohibited)
+PORT     STATE SERVICE    REASON         VERSION
+22/tcp   open  ssh        syn-ack ttl 64 OpenSSH 8.5 (protocol 2.0)
+| ssh-hostkey: 
+|   256 b0:3e:1c:68:4a:31:32:77:53:e3:10:89:d6:29:78:50 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB+dV9A80/dgYSig2NEBJYcoRe6VFus7DqjGWjNYjN4FH4e8scrM8P9zuw8EYJTdIjDVeJbersbscUbJTTH3C+w=
+|   256 fd:b4:20:d0:d8:da:02:67:a4:a5:48:f3:46:e2:b9:0f (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEG7ONqJEC7HEEiTZaI+MemunphhJ23BhWM0eLlcL/BJ
+8080/tcp open  http-proxy syn-ack ttl 64 WSGIServer/0.2 CPython/3.9.5
+|_http-title: Venus Monitoring Login
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: WSGIServer/0.2 CPython/3.9.5
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 200 OK
+|     Date: Sat, 03 Aug 2024 11:20:25 GMT
+|     Server: WSGIServer/0.2 CPython/3.9.5
+|     Content-Type: text/html; charset=utf-8
+|     X-Frame-Options: DENY
+|     Content-Length: 626
+|     X-Content-Type-Options: nosniff
+|     Referrer-Policy: same-origin
+|     <html>
+|     <head>
+|     <title>Venus Monitoring Login</title>
+|     <style>
+|     .aligncenter {
+|     text-align: center;
+|     label {
+|     display:block;
+|     position:relative;
+|     </style>
+|     </head>
+|     <body>
+|     <h1> Venus Monitoring Login </h1>
+|     <h2>Please login: </h2>
+|     Credentials guest:guest can be used to access the guest account.
+|     <form action="/" method="post">
+|     <label for="username">Username:</label>
+|     <input id="username" type="text" name="username">
+|     <label for="password">Password:</label>
+|     <input id="username" type="text" name="password">
+|     <input type="submit" value="Login">
+|     </form>
+|     </body>
+|     </html>
+|   HTTPOptions: 
+|     HTTP/1.1 200 OK
+|     Date: Sat, 03 Aug 2024 11:20:26 GMT
+|     Server: WSGIServer/0.2 CPython/3.9.5
+|     Content-Type: text/html; charset=utf-8
+|     X-Frame-Options: DENY
+|     Content-Length: 626
+|     X-Content-Type-Options: nosniff
+|     Referrer-Policy: same-origin
+|     <html>
+|     <head>
+|     <title>Venus Monitoring Login</title>
+|     <style>
+|     .aligncenter {
+|     text-align: center;
+|     label {
+|     display:block;
+|     position:relative;
+|     </style>
+|     </head>
+|     <body>
+|     <h1> Venus Monitoring Login </h1>
+|     <h2>Please login: </h2>
+|     Credentials guest:guest can be used to access the guest account.
+|     <form action="/" method="post">
+|     <label for="username">Username:</label>
+|     <input id="username" type="text" name="username">
+|     <label for="password">Password:</label>
+|     <input id="username" type="text" name="password">
+|     <input type="submit" value="Login">
+|     </form>
+|     </body>
+|_    </html>
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8080-TCP:V=7.94SVN%I=7%D=8/3%Time=66AE127D%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,363,"HTTP/1\.1\x20200\x20OK\r\nDate:\x20Sat,\x2003\x20Aug\x2
+SF:02024\x2011:20:25\x20GMT\r\nServer:\x20WSGIServer/0\.2\x20CPython/3\.9\
+SF:.5\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nX-Frame-Options:\
+SF:x20DENY\r\nContent-Length:\x20626\r\nX-Content-Type-Options:\x20nosniff
+SF:\r\nReferrer-Policy:\x20same-origin\r\n\r\n<html>\n<head>\n<title>Venus
+SF:\x20Monitoring\x20Login</title>\n<style>\n\.aligncenter\x20{\n\x20\x20\
+SF:x20\x20text-align:\x20center;\n}\nlabel\x20{\n\x20\x20\x20\x20display:b
+SF:lock;\n\x20\x20\x20\x20position:relative;\n}\n</style>\n</head>\n<body>
+SF:\n<h1>\x20Venus\x20Monitoring\x20Login\x20</h1>\n<h2>Please\x20login:\x
+SF:20</h2>\nCredentials\x20guest:guest\x20can\x20be\x20used\x20to\x20acces
+SF:s\x20the\x20guest\x20account\.\n<form\x20action=\"/\"\x20method=\"post\
+SF:">\n\x20\x20\x20\x20<br\x20/>\n\x20\x20\x20\x20<label\x20for=\"username
+SF:\">Username:</label>\n\x20\x20\x20\x20<input\x20id=\"username\"\x20type
+SF:=\"text\"\x20name=\"username\">\n\x20\x20\x20\x20<br\x20/>\n\x20\x20\x2
+SF:0\x20<label\x20for=\"password\">Password:</label>\n\x20\x20\x20\x20<inp
+SF:ut\x20id=\"username\"\x20type=\"text\"\x20name=\"password\">\n\x20\x20\
+SF:x20\x20<br\x20/>\n\x20\x20\x20\x20<input\x20type=\"submit\"\x20value=\"
+SF:Login\">\n</form>\n\n</body>\n</html>\n")%r(HTTPOptions,363,"HTTP/1\.1\
+SF:x20200\x20OK\r\nDate:\x20Sat,\x2003\x20Aug\x202024\x2011:20:26\x20GMT\r
+SF:\nServer:\x20WSGIServer/0\.2\x20CPython/3\.9\.5\r\nContent-Type:\x20tex
+SF:t/html;\x20charset=utf-8\r\nX-Frame-Options:\x20DENY\r\nContent-Length:
+SF:\x20626\r\nX-Content-Type-Options:\x20nosniff\r\nReferrer-Policy:\x20sa
+SF:me-origin\r\n\r\n<html>\n<head>\n<title>Venus\x20Monitoring\x20Login</t
+SF:itle>\n<style>\n\.aligncenter\x20{\n\x20\x20\x20\x20text-align:\x20cent
+SF:er;\n}\nlabel\x20{\n\x20\x20\x20\x20display:block;\n\x20\x20\x20\x20pos
+SF:ition:relative;\n}\n</style>\n</head>\n<body>\n<h1>\x20Venus\x20Monitor
+SF:ing\x20Login\x20</h1>\n<h2>Please\x20login:\x20</h2>\nCredentials\x20gu
+SF:est:guest\x20can\x20be\x20used\x20to\x20access\x20the\x20guest\x20accou
+SF:nt\.\n<form\x20action=\"/\"\x20method=\"post\">\n\x20\x20\x20\x20<br\x2
+SF:0/>\n\x20\x20\x20\x20<label\x20for=\"username\">Username:</label>\n\x20
+SF:\x20\x20\x20<input\x20id=\"username\"\x20type=\"text\"\x20name=\"userna
+SF:me\">\n\x20\x20\x20\x20<br\x20/>\n\x20\x20\x20\x20<label\x20for=\"passw
+SF:ord\">Password:</label>\n\x20\x20\x20\x20<input\x20id=\"username\"\x20t
+SF:ype=\"text\"\x20name=\"password\">\n\x20\x20\x20\x20<br\x20/>\n\x20\x20
+SF:\x20\x20<input\x20type=\"submit\"\x20value=\"Login\">\n</form>\n\n</bod
+SF:y>\n</html>\n");
+MAC Address: 08:00:27:18:54:5E (Oracle VirtualBox virtual NIC)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|storage-misc
+Running (JUST GUESSING): Linux 4.X|5.X|2.6.X|3.X (97%), Synology DiskStation Manager 5.X (90%), Netgear RAIDiator 4.X (87%)
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5 cpe:/o:linux:linux_kernel:2.6.32 cpe:/o:linux:linux_kernel:3 cpe:/a:synology:diskstation_manager:5.2 cpe:/o:netgear:raidiator:4.2.28
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+Aggressive OS guesses: Linux 4.15 - 5.8 (97%), Linux 5.0 - 5.4 (97%), Linux 5.0 - 5.5 (95%), Linux 2.6.32 (91%), Linux 3.10 - 4.11 (91%), Linux 3.2 - 4.9 (91%), Linux 3.4 - 3.10 (91%), Linux 5.1 (91%), Linux 2.6.32 - 3.10 (91%), Linux 2.6.32 - 3.13 (91%)
+No exact OS matches for host (test conditions non-ideal).
+TCP/IP fingerprint:
+SCAN(V=7.94SVN%E=4%D=8/3%OT=22%CT=%CU=%PV=Y%DS=1%DC=D%G=N%M=080027%TM=66AE12DC%P=x86_64-pc-linux-gnu)
+SEQ(SP=107%GCD=1%ISR=108%TI=Z%TS=A)
+SEQ(SP=107%GCD=1%ISR=108%TI=Z%II=I%TS=A)
+OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)
+WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)
+ECN(R=Y%DF=Y%TG=40%W=FAF0%O=M5B4NNSNW7%CC=Y%Q=)
+T1(R=Y%DF=Y%TG=40%S=O%A=S+%F=AS%RD=0%Q=)
+T2(R=N)
+T3(R=N)
+T4(R=Y%DF=Y%TG=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
+U1(R=N)
+IE(R=Y%DFI=N%TG=40%CD=S)
+
+Uptime guess: 21.619 days (since Fri Jul 12 23:31:25 2024)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=263 (Good luck!)
+IP ID Sequence Generation: All zeros
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.70 ms 10.0.2.15 (10.0.2.15)
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Aug  3 14:22:04 2024 -- 1 IP address (1 host up) scanned in 252.62 seconds

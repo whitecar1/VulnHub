@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Sat Aug  3 14:17:52 2024 as: nmap -sV -sS -vvv -p- -T4 -A -oA Scans/FirstNmapScan 10.0.2.15 -->
+<nmaprun scanner="nmap" args="nmap -sV -sS -vvv -p- -T4 -A -oA Scans/FirstNmapScan 10.0.2.15" start="1722683872" startstr="Sat Aug  3 14:17:52 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="3"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1722683872"/>
+<taskend task="NSE" time="1722683872"/>
+<taskbegin task="NSE" time="1722683872"/>
+<taskend task="NSE" time="1722683872"/>
+<taskbegin task="NSE" time="1722683872"/>
+<taskend task="NSE" time="1722683872"/>
+<taskbegin task="ARP Ping Scan" time="1722683872"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.0.2.15" addrtype="ipv4"/>
+<address addr="08:00:27:18:54:5E" addrtype="mac" vendor="Oracle VirtualBox virtual NIC"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskend task="ARP Ping Scan" time="1722683872" extrainfo="1 total hosts"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1722683872"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1722683872"/>
+<taskbegin task="SYN Stealth Scan" time="1722683872"/>
+<taskprogress task="SYN Stealth Scan" time="1722683903" percent="12.12" remaining="225" etc="1722684128"/>
+<taskprogress task="SYN Stealth Scan" time="1722683913" percent="15.93" remaining="217" etc="1722684129"/>
+<taskprogress task="SYN Stealth Scan" time="1722683943" percent="33.56" remaining="141" etc="1722684084"/>
+<taskprogress task="SYN Stealth Scan" time="1722683973" percent="56.93" remaining="77" etc="1722684049"/>
+<taskend task="SYN Stealth Scan" time="1722684022" extrainfo="65535 total ports"/>
+<taskbegin task="Service scan" time="1722684023"/>
+<taskprogress task="Service scan" time="1722684094" percent="50.00" remaining="72" etc="1722684165"/>
+<taskend task="Service scan" time="1722684114" extrainfo="2 services on 1 host"/>
+<taskbegin task="NSE" time="1722684118"/>
+<taskend task="NSE" time="1722684123"/>
+<taskbegin task="NSE" time="1722684123"/>
+<taskend task="NSE" time="1722684124"/>
+<taskbegin task="NSE" time="1722684124"/>
+<taskend task="NSE" time="1722684124"/>
+<host starttime="1722683872" endtime="1722684124"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.0.2.15" addrtype="ipv4"/>
+<address addr="08:00:27:18:54:5E" addrtype="mac" vendor="Oracle VirtualBox virtual NIC"/>
+<hostnames>
+<hostname name="10.0.2.15" type="PTR"/>
+</hostnames>
+<ports><extraports state="filtered" count="65533">
+<extrareasons reason="no-response" count="65378" proto="tcp" ports="1-21,23-110,112-198,200-255,257-586,588-994,996-1819,1821-1930,1932-2160,2162-2301,2303-2418,2420-2607,2609-3128,3130-3305,3307-3388,3390-4224,4226-4393,4395-4723,4725-4976,4978-5213,5215-6896,6898-7511,7513-8079,8081-8369,8371-8930,8932-9326,9328-9580,9582-10413,10415-11257,11259-11769,11771-11870,11872-14076,14078-14336,14338-15273,15275-15339,15341-15620,15622-16282,16284-16405,16407-16760,16762-18067,18069-18264,18266-18416,18418-19023,19025-19565,19567-20435,20437-20779,20781-20953,20955-21626,21628-22060,22062-22476,22478-23060,23062-23070,23072-23409,23411-23607,23609-23765,23767-24252,24254-24772,24774-24904,24906-25777,25779-26496,26498-27624,27626-27734,27736-27780,27782-28421,28423-29336,29338-29689,29691-29875,29877-29924,29926-30047,30049-30352,30354-31440,31442-32653,32655-32828,32830-32973,32975-33082,33084-33132,33134-33179,33181-33387,33389-33771,33773-34330,34332-34403,34405-35102,35104-35349,35351-36032,36034-36508,36510-36530,36532-36583,36585-38698,38700-39535,39537-39834,39836-40904,40906-40964,40966-41261,41263-42106,42108-42680,42682-42790,42792-43708,43710-43746,43748-44845,44847-45442,45444-45733,45735-45930,45932-46388,46390-46724,46726-46741,46743-47113,47115-47131,47133-47395,47397-48075,48077-48224,48226-48326,48328-48999,49001-49230,49232-49239,49241-49467,49469-49502,49504-49723,49725-50024,50026-50034,50036-50445,50447-50841,50843-51462,51464-51513,51515-51676,51678-52068,52070-52952,52954-54329,54331-54379,54381-55046,55048-55800,55802-56168,56170-56669,56671-57324,57326-57722,57724-57843,57845-57960,57962-58022,58024-59319,59321-59906,59908-60261,60263-60655,60657-60708,60710-60846,60848-60850,60852-60921,60923-61063,61065-61234,61236-61702,61704-61854,61856-61927,61929-62520,62522-63120,63122-63133,63135-63701,63703-64672,64674-64711,64713-64887,64889-65535"/>
+<extrareasons reason="admin-prohibited" count="155" proto="tcp" ports="111,199,256,587,995,1820,1931,2161,2302,2419,2608,3129,3306,3389,4225,4394,4724,4977,5214,6897,7512,8370,8931,9327,9581,10414,11258,11770,11871,14077,14337,15274,15340,15621,16283,16406,16761,18068,18265,18417,19024,19566,20436,20780,20954,21627,22061,22477,23061,23071,23410,23608,23766,24253,24773,24905,25778,26497,27625,27735,27781,28422,29337,29690,29876,29925,30048,30353,31441,32654,32829,32974,33083,33133,33180,33388,33772,34331,34404,35103,35350,36033,36509,36531,36584,38699,39536,39835,40905,40965,41262,42107,42681,42791,43709,43747,44846,45443,45734,45931,46389,46725,46742,47114,47132,47396,48076,48225,48327,49000,49231,49240,49468,49503,49724,50025,50035,50446,50842,51463,51514,51677,52069,52953,54330,54380,55047,55801,56169,56670,57325,57723,57844,57961,58023,59320,59907,60262,60656,60709,60847,60851,60922,61064,61235,61703,61855,61928,62521,63121,63134,63702,64673,64712,64888"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="8.5" extrainfo="protocol 2.0" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:8.5</cpe></service><script id="ssh-hostkey" output="&#xa;  256 b0:3e:1c:68:4a:31:32:77:53:e3:10:89:d6:29:78:50 (ECDSA)&#xa;ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB+dV9A80/dgYSig2NEBJYcoRe6VFus7DqjGWjNYjN4FH4e8scrM8P9zuw8EYJTdIjDVeJbersbscUbJTTH3C+w=&#xa;  256 fd:b4:20:d0:d8:da:02:67:a4:a5:48:f3:46:e2:b9:0f (ED25519)&#xa;ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEG7ONqJEC7HEEiTZaI+MemunphhJ23BhWM0eLlcL/BJ"><table>
+<elem key="type">ecdsa-sha2-nistp256</elem>
+<elem key="fingerprint">b03e1c684a31327753e31089d6297850</elem>
+<elem key="key">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB+dV9A80/dgYSig2NEBJYcoRe6VFus7DqjGWjNYjN4FH4e8scrM8P9zuw8EYJTdIjDVeJbersbscUbJTTH3C+w=</elem>
+<elem key="bits">256</elem>
+</table>
+<table>
+<elem key="type">ssh-ed25519</elem>
+<elem key="fingerprint">fdb420d0d8da0267a4a548f346e2b90f</elem>
+<elem key="key">AAAAC3NzaC1lZDI1NTE5AAAAIEG7ONqJEC7HEEiTZaI+MemunphhJ23BhWM0eLlcL/BJ</elem>
+<elem key="bits">256</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http-proxy" product="WSGIServer/0.2 CPython/3.9.5" servicefp="SF-Port8080-TCP:V=7.94SVN%I=7%D=8/3%Time=66AE127D%P=x86_64-pc-linux-gnu%r(GetRequest,363,&quot;HTTP/1\.1\x20200\x20OK\r\nDate:\x20Sat,\x2003\x20Aug\x202024\x2011:20:25\x20GMT\r\nServer:\x20WSGIServer/0\.2\x20CPython/3\.9\.5\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nX-Frame-Options:\x20DENY\r\nContent-Length:\x20626\r\nX-Content-Type-Options:\x20nosniff\r\nReferrer-Policy:\x20same-origin\r\n\r\n&lt;html&gt;\n&lt;head&gt;\n&lt;title&gt;Venus\x20Monitoring\x20Login&lt;/title&gt;\n&lt;style&gt;\n\.aligncenter\x20{\n\x20\x20\x20\x20text-align:\x20center;\n}\nlabel\x20{\n\x20\x20\x20\x20display:block;\n\x20\x20\x20\x20position:relative;\n}\n&lt;/style&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;h1&gt;\x20Venus\x20Monitoring\x20Login\x20&lt;/h1&gt;\n&lt;h2&gt;Please\x20login:\x20&lt;/h2&gt;\nCredentials\x20guest:guest\x20can\x20be\x20used\x20to\x20access\x20the\x20guest\x20account\.\n&lt;form\x20action=\&quot;/\&quot;\x20method=\&quot;post\&quot;&gt;\n\x20\x20\x20\x20&lt;br\x20/&gt;\n\x20\x20\x20\x20&lt;label\x20for=\&quot;username\&quot;&gt;Username:&lt;/label&gt;\n\x20\x20\x20\x20&lt;input\x20id=\&quot;username\&quot;\x20type=\&quot;text\&quot;\x20name=\&quot;username\&quot;&gt;\n\x20\x20\x20\x20&lt;br\x20/&gt;\n\x20\x20\x20\x20&lt;label\x20for=\&quot;password\&quot;&gt;Password:&lt;/label&gt;\n\x20\x20\x20\x20&lt;input\x20id=\&quot;username\&quot;\x20type=\&quot;text\&quot;\x20name=\&quot;password\&quot;&gt;\n\x20\x20\x20\x20&lt;br\x20/&gt;\n\x20\x20\x20\x20&lt;input\x20type=\&quot;submit\&quot;\x20value=\&quot;Login\&quot;&gt;\n&lt;/form&gt;\n\n&lt;/body&gt;\n&lt;/html&gt;\n&quot;)%r(HTTPOptions,363,&quot;HTTP/1\.1\x20200\x20OK\r\nDate:\x20Sat,\x2003\x20Aug\x202024\x2011:20:26\x20GMT\r\nServer:\x20WSGIServer/0\.2\x20CPython/3\.9\.5\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nX-Frame-Options:\x20DENY\r\nContent-Length:\x20626\r\nX-Content-Type-Options:\x20nosniff\r\nReferrer-Policy:\x20same-origin\r\n\r\n&lt;html&gt;\n&lt;head&gt;\n&lt;title&gt;Venus\x20Monitoring\x20Login&lt;/title&gt;\n&lt;style&gt;\n\.aligncenter\x20{\n\x20\x20\x20\x20text-align:\x20center;\n}\nlabel\x20{\n\x20\x20\x20\x20display:block;\n\x20\x20\x20\x20position:relative;\n}\n&lt;/style&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;h1&gt;\x20Venus\x20Monitoring\x20Login\x20&lt;/h1&gt;\n&lt;h2&gt;Please\x20login:\x20&lt;/h2&gt;\nCredentials\x20guest:guest\x20can\x20be\x20used\x20to\x20access\x20the\x20guest\x20account\.\n&lt;form\x20action=\&quot;/\&quot;\x20method=\&quot;post\&quot;&gt;\n\x20\x20\x20\x20&lt;br\x20/&gt;\n\x20\x20\x20\x20&lt;label\x20for=\&quot;username\&quot;&gt;Username:&lt;/label&gt;\n\x20\x20\x20\x20&lt;input\x20id=\&quot;username\&quot;\x20type=\&quot;text\&quot;\x20name=\&quot;username\&quot;&gt;\n\x20\x20\x20\x20&lt;br\x20/&gt;\n\x20\x20\x20\x20&lt;label\x20for=\&quot;password\&quot;&gt;Password:&lt;/label&gt;\n\x20\x20\x20\x20&lt;input\x20id=\&quot;username\&quot;\x20type=\&quot;text\&quot;\x20name=\&quot;password\&quot;&gt;\n\x20\x20\x20\x20&lt;br\x20/&gt;\n\x20\x20\x20\x20&lt;input\x20type=\&quot;submit\&quot;\x20value=\&quot;Login\&quot;&gt;\n&lt;/form&gt;\n\n&lt;/body&gt;\n&lt;/html&gt;\n&quot;);" method="probed" conf="10"/><script id="http-title" output="Venus Monitoring Login"><elem key="title">Venus Monitoring Login</elem>
+</script><script id="http-methods" output="&#xa;  Supported Methods: GET HEAD POST OPTIONS"><table key="Supported Methods">
+<elem>GET</elem>
+<elem>HEAD</elem>
+<elem>POST</elem>
+<elem>OPTIONS</elem>
+</table>
+</script><script id="http-server-header" output="WSGIServer/0.2 CPython/3.9.5"><elem>WSGIServer/0.2 CPython/3.9.5</elem>
+</script><script id="fingerprint-strings" output="&#xa;  GetRequest: &#xa;    HTTP/1.1 200 OK&#xa;    Date: Sat, 03 Aug 2024 11:20:25 GMT&#xa;    Server: WSGIServer/0.2 CPython/3.9.5&#xa;    Content-Type: text/html; charset=utf-8&#xa;    X-Frame-Options: DENY&#xa;    Content-Length: 626&#xa;    X-Content-Type-Options: nosniff&#xa;    Referrer-Policy: same-origin&#xa;    &lt;html&gt;&#xa;    &lt;head&gt;&#xa;    &lt;title&gt;Venus Monitoring Login&lt;/title&gt;&#xa;    &lt;style&gt;&#xa;    .aligncenter {&#xa;    text-align: center;&#xa;    label {&#xa;    display:block;&#xa;    position:relative;&#xa;    &lt;/style&gt;&#xa;    &lt;/head&gt;&#xa;    &lt;body&gt;&#xa;    &lt;h1&gt; Venus Monitoring Login &lt;/h1&gt;&#xa;    &lt;h2&gt;Please login: &lt;/h2&gt;&#xa;    Credentials guest:guest can be used to access the guest account.&#xa;    &lt;form action=&quot;/&quot; method=&quot;post&quot;&gt;&#xa;    &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;&#xa;    &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;username&quot;&gt;&#xa;    &lt;label for=&quot;password&quot;&gt;Password:&lt;/label&gt;&#xa;    &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;password&quot;&gt;&#xa;    &lt;input type=&quot;submit&quot; value=&quot;Login&quot;&gt;&#xa;    &lt;/form&gt;&#xa;    &lt;/body&gt;&#xa;    &lt;/html&gt;&#xa;  HTTPOptions: &#xa;    HTTP/1.1 200 OK&#xa;    Date: Sat, 03 Aug 2024 11:20:26 GMT&#xa;    Server: WSGIServer/0.2 CPython/3.9.5&#xa;    Content-Type: text/html; charset=utf-8&#xa;    X-Frame-Options: DENY&#xa;    Content-Length: 626&#xa;    X-Content-Type-Options: nosniff&#xa;    Referrer-Policy: same-origin&#xa;    &lt;html&gt;&#xa;    &lt;head&gt;&#xa;    &lt;title&gt;Venus Monitoring Login&lt;/title&gt;&#xa;    &lt;style&gt;&#xa;    .aligncenter {&#xa;    text-align: center;&#xa;    label {&#xa;    display:block;&#xa;    position:relative;&#xa;    &lt;/style&gt;&#xa;    &lt;/head&gt;&#xa;    &lt;body&gt;&#xa;    &lt;h1&gt; Venus Monitoring Login &lt;/h1&gt;&#xa;    &lt;h2&gt;Please login: &lt;/h2&gt;&#xa;    Credentials guest:guest can be used to access the guest account.&#xa;    &lt;form action=&quot;/&quot; method=&quot;post&quot;&gt;&#xa;    &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;&#xa;    &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;username&quot;&gt;&#xa;    &lt;label for=&quot;password&quot;&gt;Password:&lt;/label&gt;&#xa;    &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;password&quot;&gt;&#xa;    &lt;input type=&quot;submit&quot; value=&quot;Login&quot;&gt;&#xa;    &lt;/form&gt;&#xa;    &lt;/body&gt;&#xa;    &lt;/html&gt;"><elem key="GetRequest">&#xa;    HTTP/1.1 200 OK&#xa;    Date: Sat, 03 Aug 2024 11:20:25 GMT&#xa;    Server: WSGIServer/0.2 CPython/3.9.5&#xa;    Content-Type: text/html; charset=utf-8&#xa;    X-Frame-Options: DENY&#xa;    Content-Length: 626&#xa;    X-Content-Type-Options: nosniff&#xa;    Referrer-Policy: same-origin&#xa;    &lt;html&gt;&#xa;    &lt;head&gt;&#xa;    &lt;title&gt;Venus Monitoring Login&lt;/title&gt;&#xa;    &lt;style&gt;&#xa;    .aligncenter {&#xa;    text-align: center;&#xa;    label {&#xa;    display:block;&#xa;    position:relative;&#xa;    &lt;/style&gt;&#xa;    &lt;/head&gt;&#xa;    &lt;body&gt;&#xa;    &lt;h1&gt; Venus Monitoring Login &lt;/h1&gt;&#xa;    &lt;h2&gt;Please login: &lt;/h2&gt;&#xa;    Credentials guest:guest can be used to access the guest account.&#xa;    &lt;form action=&quot;/&quot; method=&quot;post&quot;&gt;&#xa;    &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;&#xa;    &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;username&quot;&gt;&#xa;    &lt;label for=&quot;password&quot;&gt;Password:&lt;/label&gt;&#xa;    &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;password&quot;&gt;&#xa;    &lt;input type=&quot;submit&quot; value=&quot;Login&quot;&gt;&#xa;    &lt;/form&gt;&#xa;    &lt;/body&gt;&#xa;    &lt;/html&gt;</elem>
+<elem key="HTTPOptions">&#xa;    HTTP/1.1 200 OK&#xa;    Date: Sat, 03 Aug 2024 11:20:26 GMT&#xa;    Server: WSGIServer/0.2 CPython/3.9.5&#xa;    Content-Type: text/html; charset=utf-8&#xa;    X-Frame-Options: DENY&#xa;    Content-Length: 626&#xa;    X-Content-Type-Options: nosniff&#xa;    Referrer-Policy: same-origin&#xa;    &lt;html&gt;&#xa;    &lt;head&gt;&#xa;    &lt;title&gt;Venus Monitoring Login&lt;/title&gt;&#xa;    &lt;style&gt;&#xa;    .aligncenter {&#xa;    text-align: center;&#xa;    label {&#xa;    display:block;&#xa;    position:relative;&#xa;    &lt;/style&gt;&#xa;    &lt;/head&gt;&#xa;    &lt;body&gt;&#xa;    &lt;h1&gt; Venus Monitoring Login &lt;/h1&gt;&#xa;    &lt;h2&gt;Please login: &lt;/h2&gt;&#xa;    Credentials guest:guest can be used to access the guest account.&#xa;    &lt;form action=&quot;/&quot; method=&quot;post&quot;&gt;&#xa;    &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;&#xa;    &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;username&quot;&gt;&#xa;    &lt;label for=&quot;password&quot;&gt;Password:&lt;/label&gt;&#xa;    &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;password&quot;&gt;&#xa;    &lt;input type=&quot;submit&quot; value=&quot;Login&quot;&gt;&#xa;    &lt;/form&gt;&#xa;    &lt;/body&gt;&#xa;    &lt;/html&gt;</elem>
+</script></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="22"/>
+<osmatch name="Linux 4.15 - 5.8" accuracy="97" line="67250">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="97"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="97"><cpe>cpe:/o:linux:linux_kernel:5</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 5.0 - 5.4" accuracy="97" line="68121">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="97"><cpe>cpe:/o:linux:linux_kernel:5</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 5.0 - 5.5" accuracy="95" line="68098">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="95"><cpe>cpe:/o:linux:linux_kernel:5</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 2.6.32" accuracy="91" line="55372">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:2.6.32</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 3.10 - 4.11" accuracy="91" line="63448">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 3.2 - 4.9" accuracy="91" line="65323">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 3.4 - 3.10" accuracy="91" line="65584">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 5.1" accuracy="91" line="68139">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:5.1</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 2.6.32 - 3.10" accuracy="91" line="56580">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:2.6</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 2.6.32 - 3.13" accuracy="91" line="56610">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:2.6</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="91"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+</osmatch>
+<osfingerprint fingerprint="SCAN(V=7.94SVN%E=4%D=8/3%OT=22%CT=%CU=%PV=Y%DS=1%DC=D%G=N%M=080027%TM=66AE12DC%P=x86_64-pc-linux-gnu)&#xa;SEQ(SP=107%GCD=1%ISR=108%TI=Z%TS=A)&#xa;SEQ(SP=107%GCD=1%ISR=108%TI=Z%II=I%TS=A)&#xa;OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)&#xa;WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)&#xa;ECN(R=Y%DF=Y%TG=40%W=FAF0%O=M5B4NNSNW7%CC=Y%Q=)&#xa;T1(R=Y%DF=Y%TG=40%S=O%A=S+%F=AS%RD=0%Q=)&#xa;T2(R=N)&#xa;T3(R=N)&#xa;T4(R=Y%DF=Y%TG=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)&#xa;U1(R=N)&#xa;IE(R=Y%DFI=N%TG=40%CD=S)&#xa;"/>
+</os>
+<uptime seconds="1867839" lastboot="Fri Jul 12 23:31:25 2024"/>
+<distance value="1"/>
+<tcpsequence index="263" difficulty="Good luck!" values="C20094E8,9F66696F,1F8C982A,36C0D23B,38F44EAD,F882EE43"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="1000HZ" values="6F54D987,6F54D9ED,6F54DA50,6F54DAB6,6F54DB1B,6F54DB7F"/>
+<trace>
+<hop ttl="1" ipaddr="10.0.2.15" rtt="1.70" host="10.0.2.15"/>
+</trace>
+<times srtt="1699" rttvar="631" to="100000"/>
+</host>
+<taskbegin task="NSE" time="1722684124"/>
+<taskend task="NSE" time="1722684124"/>
+<taskbegin task="NSE" time="1722684124"/>
+<taskend task="NSE" time="1722684124"/>
+<taskbegin task="NSE" time="1722684124"/>
+<taskend task="NSE" time="1722684124"/>
+<runstats><finished time="1722684124" timestr="Sat Aug  3 14:22:04 2024" summary="Nmap done at Sat Aug  3 14:22:04 2024; 1 IP address (1 host up) scanned in 252.62 seconds" elapsed="252.62" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

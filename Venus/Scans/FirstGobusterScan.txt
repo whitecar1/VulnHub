@@ -1,0 +1,1 @@
+/admin               [36m (Status: 301)[0m [Size: 0][34m [--> /admin/][0m
