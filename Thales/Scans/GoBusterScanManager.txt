@@ -1,0 +1,10 @@
+/images              [36m (Status: 302)[0m [Size: 0][34m [--> /manager/images/][0m
+/html                [33m (Status: 401)[0m [Size: 2499]
+/text                [33m (Status: 401)[0m [Size: 2499]
+/css                 [36m (Status: 302)[0m [Size: 0][34m [--> /manager/css/][0m
+/status              [33m (Status: 401)[0m [Size: 2499]
+/http%3A%2F%2Fwww    [33m (Status: 400)[0m [Size: 804]
+/http%3A%2F%2Fyoutube[33m (Status: 400)[0m [Size: 804]
+/http%3A%2F%2Fblogs  [33m (Status: 400)[0m [Size: 804]
+/http%3A%2F%2Fblog   [33m (Status: 400)[0m [Size: 804]
+/**http%3A%2F%2Fwww  [33m (Status: 400)[0m [Size: 804]
